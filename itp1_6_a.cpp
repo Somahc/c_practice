@@ -15,7 +15,10 @@ int main() {
     }
 
     for(int i=n-1; i >= 0; i--) {
-        std::cout << arr[i] << " ";
+        std::cout << arr[i];
+        if(i != 0) {
+            std::cout << " ";
+        }
     }
 
     std::cout << std::endl;
