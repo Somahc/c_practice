@@ -1,18 +1,19 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    int array[64];
-    unsigned long long int ans = 0;
-
-    for (int i=0; i<64; i++) {
-        cin >> array[i];
-        if (array[i] == 1) {
-            //ans += pow(2, i);
-             ans += 1ULL << i;
-        }
-    }
+    int n;
+    cin >> n;
+    vector<int> cnt(n+1), ans;
     
-    cout << ans << endl;
+    for (int i=0; i<3*n; i++) {
+        int a;
+        cin >> a;
+        ++cnt[a];
+        if (cnt[a] == 2) ans.push_back(a);
+    }
+
+    for (int i=0; i<n; i++) {
+        cout << ans[i] << (i == n-1 ? "\n" : " ");
+    }
 }
