@@ -9,7 +9,7 @@ int main() {
 
     vector<string> C(N+1);
     vector<string> D(M+1);
-    vector<int> P(M);
+    vector<int> P(M+1);
 
     for (int i=1; i<=N; i++) {
         cin >> C[i];
@@ -17,17 +17,20 @@ int main() {
     for (int i=1; i<=M; i++) {
         cin >> D[i];
     }
-    for (int i=0; i<M; i++) {
+    for (int i=0; i<=M; i++) {
         cin >> P[i];
     }
 
+    int a = N;
     for (int i=1; i<=N; i++) {
+        //cout << i << endl;
         for (int j=1; j<=M; j++) {
             if (C[i] == D[j]) {
                 price += P[j];
+                a--;
             }
         }
     }
 
-    cout << price << endl;
+    cout << price + P[0]*a << endl;
 }
