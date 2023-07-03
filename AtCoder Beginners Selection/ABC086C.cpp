@@ -15,10 +15,9 @@ int main() {
         if (dt < dist) can = false;
         if (dt % 2 != dist % 2) can = false;
 
-        if (can) cout << "Yes" << endl;
-        else cout << "No" << endl;
-
     }
+    if (can) cout << "Yes" << endl;
+    else cout << "No" << endl;
 
     return 0;
 }

@@ -2,20 +2,23 @@
 using namespace std;
 
 int main() {
-    int N, Y, x, y, z;
-    cin >> N >> Y;
-    x = y = z = -1;
-    for(int i=0; i<=N; i++) {
-        for(int j=0; j<=N; j++) {
-            
-            int total = 10000*i + 5000*j + 1000*(N-i-j);
-            if(total == Y && (N-i-j) > 0) {
-                x = i;
-                y = j;
-                z = N-i-j;
-            }
-        }
+    int N;
+    int t[110000], x[110000], y[110000];
+    cin >> N;
+    t[0] = x[0] = y[0] = 0; // 初期状態
+    for (int i=0; i<N; i++) cin >> t[i+1] >> x[i+1] >> y[i+1];
+
+    bool can = true;
+    for (int i=0; i<N; i++) {
+        int dt = t[i+1] - t[i]; // 指定された場所から場所への時間差
+        int dist = abs(x[i+1] - x[i]) + abs(y[i+1] - y[i]); // 指定された場所から場所への距離
+        if (dt < dist) can = false;
+        if (dt % 2 != dist % 2) can = false;
+
+        if (can) cout << "Yes" << endl;
+        else cout << "No" << endl;
+
     }
-    cout << x << " " << y << " " << z << endl;;
+
     return 0;
 }
