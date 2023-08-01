@@ -2,6 +2,7 @@
 using namespace std;
 #define rep(i, n) for(int i=0; i<(n); i++)
 
+// n回グラフを辿れば必ずサイクルに入るから、とりあえずn回辿ってサイクルに入る
 int main() {
     int n;
     cin >> n;
@@ -13,16 +14,12 @@ int main() {
         v = a[v];
         // cout << a[v] << endl;
     }
-    cout << "--------" << endl;
     int sv = v;
     vector<int> ans;
     do {
         ans.push_back(v);
-        cout << a[v] << endl;
         v = a[v];
     } while(v != sv);
-
-    cout << "--------" << endl;
 
     cout << ans.size() << endl;
     for(int v : ans) cout << v << endl;
