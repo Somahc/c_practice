@@ -14,9 +14,9 @@ int main() {
                 cout << "Yes" << endl;
                 return 0;
             }
-            rep(i, h) rotate(a[i].begin(), a[i].begin()+1, a[i].end());
+            rep(i, h) rotate(a[i].begin(), a[i].begin()+1, a[i].end()); // 行の回転
         }
-        rotate(a.begin(), a.begin()+1, a.end());
+        rotate(a.begin(), a.begin()+1, a.end()); // 列の回転
     }
     cout << "No" << endl;
     return 0;
