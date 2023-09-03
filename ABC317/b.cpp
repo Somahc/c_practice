@@ -2,21 +2,16 @@
 #define rep(i, n) for (int i=0; i<(n); i++)
 using namespace std;
 
-int main() {
-    set<pair<int,int>> st = {};
-
-    int n;
+int main(){
+    int n, ans=0;
     cin >> n;
+    vector<int> a(n);
 
-    rep(i,n){
-        int a,b,c,d;
-        cin >> a >> b >> c >> d;
-        for(int i=d-c; i==d; i++){
-            for(int j=a; j<b; j++){
-                st.insert(make_pair(i,j));
-            }
-        }
+    rep(i,n)cin >> a[i];
+
+    sort(a.begin(), a.end());
+
+    rep(i,n-1){
+        if(a[i+1] != a[i] + 1)cout << a[i] + 1 << endl;
     }
-
-    cout << st.size() << endl;
 }

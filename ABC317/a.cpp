@@ -3,18 +3,16 @@
 using namespace std;
 
 int main() {
-    int n,m,p,ans=0;
-    cin >> n >> m >> p;
+    int n, h, x;
+    cin >> n >> h >> x;
 
-    if(n < m) {
-        cout << 0 << endl;
-        return 0;
-    }else{
-        int tmp;
-        tmp = (n-m) / p;
-        ans = tmp + 1;
-        cout << ans << endl;
-        return 0;
+    rep(i, n) {
+        int p, afterHealed = 0;
+        cin >> p;
+        afterHealed = p + h;
+        if(afterHealed >= x) {
+            cout << i + 1 << endl;
+            return 0;
+        }
     }
-
 }
