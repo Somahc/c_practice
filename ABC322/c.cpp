@@ -9,7 +9,7 @@ int main(){
     vector<bool> f(n);
     vector<int> answer(n);
 
-    rep(i,n){
+    rep(i,m){
         int a;
         cin >> a;
         f[a-1] = true;   
@@ -17,8 +17,10 @@ int main(){
 
     for(int i=n-1; i>=0; i--){
         if(f[i] == true) answer[i] = 0;
-        else answer[i] = f[i+1] + 1;
+        else answer[i] = answer[i+1] + 1;
     }
+
+    rep(i,n) cout << answer[i] << '\n';
 
     // vector<int> answer(n);
     // vector<bool> isHanabi(n);
