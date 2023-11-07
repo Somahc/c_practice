@@ -5,18 +5,20 @@ using namespace std;
 int main(){
     int n;
     cin >> n;
-    vector<pair<int, int>> v(n);
+    vector<string> s(n);
+    rep(i,n) cin >> s[i];
+    vector<int> w(n);
     rep(i,n){
-        v[i].second = i;
-        string s;
-        cin >> s;
-        rep(j,n){
-            if(s[j] == 'o') v[i].first++;
-        }
+        rep(j,n) if(s[i][j] == 'o') w[i]++;
     }
-    sort(v.rbegin(), v.rend());
-    rep(i,n){
-        cout << v[i].second + 1 << " ";
-    }
+
+    vector<int> ans(n);
+    rep(i,n) ans[i] = i;
+    sort(ans.begin(), ans.end(), [&](int a, int b) {
+        if(w[a] == w[b]) return a < b;
+        return w[a] > w[b];
+    });
+
+    rep(i,n) cout << ans[i]+1 << ' ';
     cout << endl;
 }
