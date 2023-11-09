@@ -3,6 +3,13 @@
 using namespace std;
 
 int main(){
-    int n, m;
-    cin >> n >> m;
+    string str, ans = "";
+    cin >> str;
+
+    for(int i=0; i<(str.size()/2); i++){
+        ans+=str[2 * i + 1];
+        ans+=str[2 * i];
+    }
+
+    cout << ans << endl; 
 }
