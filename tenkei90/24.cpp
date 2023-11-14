@@ -20,6 +20,4 @@ int main(){
     }
     cout << "No" << endl;
     return 0;
-
-    // cout << distance << endl;
 }
