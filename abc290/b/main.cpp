@@ -3,6 +3,16 @@
 using namespace std;
 
 int main(){
-    int n, m;
-    cin >> n >> m;
+    int n, k, kessho = 0;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    rep(i,n){
+        if(s[i] == 'o' && kessho < k) {
+            cout << 'o';
+            kessho++;
+        }
+        else cout << 'x';
+    }
+    cout << endl;
 }
