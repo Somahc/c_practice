@@ -3,6 +3,13 @@
 using namespace std;
 
 int main(){
-    int n, m;
-    cin >> n >> m;
+    string s, t;
+    cin >> s >> t;
+
+    for(int i = 0; i < t.size(); i++){
+        if(t[i] != s[i]){
+            cout << i + 1 << endl;
+            return 0;
+        }
+    }
 }
