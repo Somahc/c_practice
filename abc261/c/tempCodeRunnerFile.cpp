@@ -17,6 +17,7 @@ int main(){
         else {
             cout << s << '(' << mp[s] << ')' << endl;
             mp[s]++;
+            return 0;
         }
     }
 }
