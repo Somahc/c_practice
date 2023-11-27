@@ -3,35 +3,16 @@
 using namespace std;
 using ll  = long long;
 int main() {
-    ll d, nijo = 1, cnt = 0;
+    ll d;
     cin >> d;
-    while(1){
-        cnt = nijo*nijo;
-        if(cnt >= d) break;
-        nijo++;
-    }
-    if(nijo*nijo == d){
-        cout << "0" << endl;
-        return 0;
-    }
-    nijo--;
-    ll nijo2 = 1, cnt2 = 0;
-    cnt = d - nijo*nijo;
-    while(1){
-        cnt2 = nijo2*nijo2;
-        if(cnt <= cnt2) break;
-        nijo2++;
-    }
-    nijo2--;
-    if(nijo2*nijo2 == cnt){
-        cout << "0" << endl;
-        return 0;
-    }
 
-    ll ans = min(abs(nijo*nijo + nijo2*nijo2 - d), abs(nijo*nijo + (nijo2-1)*(nijo2-1) - d));
-
-    cout << nijo << ' ' << nijo2 << endl;
+    ll ans = d;
+    ll y = 2e6;
+    for(ll x=0; x<2e6; x++){
+        while(y > 0 && x*x + y*y > d) y--;
+        ans = min(ans, abs(x*x + y*y - d));
+        ans = min(ans, abs(x*x + (y+1)*(y+1) - d));
+    }
     cout << ans << endl;
-
     return 0;
 }
