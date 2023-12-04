@@ -42,7 +42,6 @@ int main(){
     rep(i,m){
         int a, b;
         cin >> a >> b;
-        a--, b--;
         if(uf.root(a) == uf.root(b)){
             ans++;
             // uf.merge(a,b);
