@@ -28,13 +28,14 @@ int main(){
     //     mp2[x] = tmp;
     // }
 
-    for(auto it = st.begin(); it != st.end(); ++it){
-        ll x = *it;
+    for(auto x : st){
+        // cout << x << endl;
         ll tmp = 0;
-        for(auto y_it = ++it; ++y_it != st.end(); ++y_it){
-            ll y = *y_it;
-            if(y > x){
-                tmp += y * mp[y];
+        int n = st.size();
+        for(int i = 1; i < n; i++){
+            mp2[x] = 0;
+            if(st[i] > x){
+                tmp += y*mp[y];
             }
         }
         mp2[x] = tmp;
