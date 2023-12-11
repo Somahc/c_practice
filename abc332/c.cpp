@@ -3,66 +3,32 @@
 using namespace std;
 
 int main(){
-    int n,m,muji=0,logo=0,mujiMax=0,logoMax=0,saicho=0,days=0;
-    int saicho_day_end = 0;
-    vector<int> zero;
-    zero.push_back(0);
-    cin >> n >> m;
+    int n,m;
     string s;
+    cin >> n >> m;
     cin >> s;
+    s += "0";
 
+    int muji = 0, logo = 0, muji_max = 0, logo_max = 0, ans = 0;
     for(int i = 0; i < s.size(); i++){
-        days++;
-        if(s[i] == '0' || i == (s.size()-1)){
-            if(s[i] == '0') days--;
-            if(s[i] == '1') muji++;
-            if(s[i] == '2') logo++;
-            // if(s[i] == '0'){
-            //     zero.push_back(i);
-            // }else if(s[i] == (s.size()-1)){
-            //     zero.push_back(s.size());
-            // }
-            logoMax = max(logoMax, logo);
-            mujiMax = max(mujiMax, muji);
+        if(s[i] == '0'){
+            // muji_max = max(muji_max, muji);
+            // logo_max = max(logo_max, logo);
+            ans = max(ans, muji + logo - min(m,muji));
             muji = 0;
-            saicho = max(saicho,days);
-            // if(saicho == days){
-            //     saicho_day_end = i;
-            // }
             logo = 0;
-            days = 0;
-        }
-        if(s[i] == '1'){
+            // cout << "0リセット" << endl;
+        }else if(s[i] == '1'){
             muji++;
-        }
-        if(s[i] == '2'){
-            logo++;
-        }
-    }
-
-    cout << logoMax << " " << mujiMax << " " << saicho << endl;
-
-    if(mujiMax < 0) mujiMax = 0;
-    int ans = 0;
-    if(saicho < (mujiMax + logoMax) && logoMax < mujiMax){
-        ans = logoMax + (mujiMax - logoMax);
-    }else if(saicho < (mujiMax + logoMax)){
-        cout << "k" << endl;
-        ans = saicho;
-    }else{
-        if(logoMax < mujiMax){
-            ans = logoMax + (mujiMax - logoMax);
+            // cout << "muji++" << endl;
+            // cout << muji << endl;
         }else{
-            ans = logoMax + mujiMax;
-            // cout << logoMax << endl;
+            logo++;
+            // cout << "logo++" << endl;
+            // cout << logo << endl;
         }
     }
-    
-    if(mujiMax >= m) ans -= m;
 
     cout << ans << endl;
-
-    
-        
     return 0;
 }
