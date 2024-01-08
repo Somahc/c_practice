@@ -7,7 +7,7 @@ int main(){
     cin >> x >> y;
     int sa;
     sa = abs(x - y);
-    if(sa > 3) cout << "No" << endl;
+    if((sa > 2 and x < y) or (sa > 3 and x > y)) cout << "No" << endl;
     else cout << "Yes" << endl;
     return 0;
 }
