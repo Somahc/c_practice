@@ -15,7 +15,7 @@ int main()
     b = a;
     for (int i = 0; i < r - l + 1; i++)
     {
-        b[l + i] = a[r - 1 - i];
+        b[l + i - 1] = a[r - 1 - i];
     }
     for (auto x : b)
     {
