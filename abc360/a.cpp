@@ -6,8 +6,20 @@ using ll = long long;
 int main()
 {
     string s;
-    cin >> s >> endl;
+    bool isMisoShowed = false;
+    cin >> s;
     for (char c : s)
     {
+        if (c == 'M')
+        {
+            isMisoShowed = true;
+        }
+        if (c == 'R' and isMisoShowed == false)
+        {
+            cout << "Yes" << endl;
+            return 0;
+        }
     }
+    cout << "No" << endl;
+    return 0;
 }
